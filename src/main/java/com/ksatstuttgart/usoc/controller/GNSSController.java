@@ -48,6 +48,9 @@ public class GNSSController {
     public static Position getEstimatedImpact(ArrayList<Position> positions, Globe g) {
         if (positions.size() < 3) {
             //TODO: throw exception
+            
+            //send command to reboot
+            SerialComm.sendCommand("6");
             return null;
         }
 
