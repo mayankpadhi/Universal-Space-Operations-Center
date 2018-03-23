@@ -117,6 +117,14 @@ public class SerialComm {
             SerialComm.getInstance().send(command);
         }
     }
+    
+    public static void sendCommand(String s) {
+        if (SerialComm.getInstance().isOpen()) {
+            String command = SerialCommand.valueOf(s) + "0\n";
+            System.out.println("command: " + command);
+            SerialComm.getInstance().send(command);
+        }
+    }
 
     public List<String> getPorts() {
         ArrayList<String> al = new ArrayList<>();
